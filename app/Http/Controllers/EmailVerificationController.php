@@ -17,19 +17,18 @@ class EmailVerificationController extends Controller
     }
     public function email(EmailVerificationRequest $request)
     {
-        $userr = Auth::guard('sanctum')->user();
-
-        $otpe = $this->otp->validate($userr->->email, $request->otp);
-        if (!$otpe->status) {
-            return response(['error' => 'something went wrong'], 404);
-        }
-        $user = User::where('email', $request->email)->first();
-        if($user == $userr){
-            $user->is_verified = true;
-        $user->save();
-        return response(['message' => 'Account Have Been Activeted'], 200);
-        }
-        return "mistake";
+        // $otpe = $this->otp->validate($request->email, $request->otp);
+        // // if (!$otpe->status) {
+        // //     return response(['error' => 'something went wrong'], 404);
+        // // }
+        // // $userr = Auth::user();
+        // // $user = User::where('email', $request->email)->first();
+        // // if($user == $userr){
+        // //     $user->is_verified = true;
+        // // $user->save();
+        // // return response(['message' => 'Account Have Been Activeted'], 200);
+        // // }
+        // // return "mistake";
         
     }
 }
