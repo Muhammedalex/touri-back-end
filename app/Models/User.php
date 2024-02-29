@@ -33,6 +33,7 @@ class User extends Authenticatable
         'photo',
         'role_id',
         'country_id',
+        // 'is_verified'
     ];
 
     /**
