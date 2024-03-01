@@ -20,7 +20,7 @@ class LoginController extends Controller
         $token = $user->createToken($user->first_name);
         
         // Send a login notification
-        $user->notify(new RegisterNotification());
+        // $user->notify(new RegisterNotification());
     
         return response([
             'message' => "Welcome, $user->first_name",

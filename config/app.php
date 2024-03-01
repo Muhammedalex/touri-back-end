@@ -4,6 +4,8 @@ use Ichtrojan\Otp\Otp;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 use Ichtrojan\Otp\OtpServiceProvider;
+use Intervention\Image\Laravel\ServiceProvider as ImageProvider;
+
 return [
 
     /*
@@ -169,8 +171,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        OtpServiceProvider::class
-    ])->toArray(),
+        OtpServiceProvider::class,
+        ImageProvider::class
+        ])->toArray(),
 
     /*
     |--------------------------------------------------------------------------
@@ -186,6 +189,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Otp'=> Otp::class,
+        'Image' => Intervention\Image\Image::class,
     ])->toArray(),
 
 ];
