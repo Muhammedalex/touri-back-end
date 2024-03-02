@@ -26,6 +26,8 @@ Route::middleware(['auth:sanctum','setapplang'])->prefix('{locale}')->group(func
     Route::get('/auth/profile',function(Request $request){
         return $request->user();
     });
+    Route::post('/auth/logout', [LoginController::class, 'logout']);
+
     Route::post('/auth/update-profile',[UpdateProfileController::class,'update']);
     Route::get('/auth/get-otp', [EmailVerificationController::class, 'sendEmailVerifiy']);
 });

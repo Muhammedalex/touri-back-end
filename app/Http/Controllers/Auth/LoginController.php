@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use App\Notifications\RegisterNotification;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
@@ -27,5 +29,15 @@ class LoginController extends Controller
             'token' => $token->plainTextToken,
             'user' => $user,
         ], 201);
+    }
+    public function logout(Request $request)
+    {
+        $user = Auth::guard('sanctum')->user();
+
+        if ($user) {
+            $request->user()->tokens()->delete();
+        }
+
+        return response(['message' => 'User logged out successfully','success'=>true],200);
     }
 }
