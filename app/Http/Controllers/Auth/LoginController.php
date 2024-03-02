@@ -23,7 +23,7 @@ class LoginController extends Controller
         // $user->notify(new RegisterNotification());
     
         return response([
-            'message' => "Welcome, $user->first_name",
+            'message' => __('auth.Welcome') .' ' .$user->first_name,
             'token' => $token->plainTextToken,
             'user' => $user,
         ], 201);

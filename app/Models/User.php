@@ -8,14 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
     protected $table = 'users';
-    function rule(){
-        return $this->belongsTo(Role::class);
-    }
+    
     function country(){
         return $this->belongsTo(Country::class);
     }
@@ -32,7 +31,7 @@ class User extends Authenticatable
         'email',
         'password',
         'photo',
-        'role_id',
+        'role',
         'country_id',
         // 'is_verified'
     ];

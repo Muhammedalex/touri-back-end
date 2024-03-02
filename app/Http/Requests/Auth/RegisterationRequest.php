@@ -27,7 +27,7 @@ class RegisterationRequest extends FormRequest
             'mobile' => 'sometimes|unique:users,mobile|digits_between:11,20',
             'email' => 'required|unique:users,email',
             'password' => 'required|min:6',
-            'role_id' => 'required|exists:roles,id', // Assuming roles table exists
+            'role' => 'required', // Assuming roles table exists
             'country_id' => 'required|exists:countries,id', // Assuming countries table exists
         ];
     }

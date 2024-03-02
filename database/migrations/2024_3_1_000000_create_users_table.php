@@ -31,7 +31,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('photo')->nullable();
-            $table->boolean('is_verified')->default(false);            $table->foreignIdFor(Role::class)->constrained();
+            $table->boolean('is_verified')->default(false);
+            $table->string('role');
             $table->foreignIdFor(Country::class)->constrained();
             $table->rememberToken();
             $table->timestamps();

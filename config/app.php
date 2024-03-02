@@ -87,6 +87,10 @@ return [
     */
 
     'locale' => 'en',
+    'available_locales'=>[
+        'en',
+        'ar'
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -172,7 +176,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         OtpServiceProvider::class,
-        ImageProvider::class
+        ImageProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
         ])->toArray(),
 
     /*
